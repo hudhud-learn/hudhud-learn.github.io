@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>حمّل تطبيق هدهد</title>
+<meta name="description" content="تطبيق هدهد لتعلّم الألماني والإنجليزي بالعربي. حمّله على الآيفون أو الأندرويد.">
+<meta property="og:title" content="حمّل تطبيق هدهد">
+<meta property="og:description" content="تعلّم الألماني والإنجليزي بالعربي، بدروس قصيرة كل يوم.">
+<meta property="og:image" content="https://hudhud-learn.github.io/get/icon.png">
+<link rel="icon" href="icon.png">
+<style>
+:root{--bg:#fff;--fg:#14171a;--muted:#5d6670;--line:#dfe3e8;--btn:#14171a;--btn-fg:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#101316;--fg:#f3f5f7;--muted:#a3adb8;--line:#2c3238;--btn:#f3f5f7;--btn-fg:#101316}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;padding:24px 16px;text-align:center}
+main{width:100%;max-width:380px}
+img{width:112px;height:112px;border-radius:24px}
+h1{font-size:26px;margin:18px 0 6px}
+p{color:var(--muted);margin:0 0 24px;line-height:1.6}
+a.btn{display:block;background:var(--btn);color:var(--btn-fg);text-decoration:none;font-weight:700;padding:15px;border-radius:12px;margin-bottom:12px}
+#note{font-size:14px;margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+<img src="icon.png" alt="أيقونة تطبيق هدهد">
+<h1>تطبيق هدهد</h1>
+<p>تعلّم الألماني والإنجليزي بالعربي، بدروس قصيرة كل يوم.</p>
+<a class="btn" id="ios" href="https://apps.apple.com/app/id6830122867">حمّله على الآيفون</a>
+<a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.ahmadyaghi.hudhud">حمّله على الأندرويد</a>
+<p id="note" hidden></p>
+</main>
+<script>
+// Set to true once Hudhud is live for everyone on Google Play (expected around 18.11.2026).
+var ANDROID_LIVE = false;
+var ua = navigator.userAgent || "";
+var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+var isAndroid = /Android/.test(ua);
+var ios = document.getElementById("ios").href, android = document.getElementById("android").href;
+if (isIOS) { location.replace(ios); }
+else if (isAndroid && ANDROID_LIVE) { location.replace(android); }
+else if (isAndroid) {
+  var n = document.getElementById("note");
+  n.textContent = "نسخة الأندرويد قريباً للجميع. الزر فوق بيشتغل هسّه للمختبرين بس.";
+  n.hidden = false;
+}
+</script>
+</body>
+</html>
