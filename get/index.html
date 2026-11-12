@@ -35,8 +35,8 @@ a.btn{display:block;background:var(--btn);color:var(--btn-fg);text-decoration:no
 // Hudhud is live for everyone on Google Play (12.11.2026).
 var ANDROID_LIVE = true;
 var ua = navigator.userAgent || "";
-var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 var isAndroid = /Android/.test(ua);
+var isIOS = !isAndroid && (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
 var ios = document.getElementById("ios").href, android = document.getElementById("android").href;
 if (isIOS) { location.replace(ios); }
 else if (isAndroid && ANDROID_LIVE) { location.replace(android); }
